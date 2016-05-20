@@ -8,7 +8,7 @@ NATION = ENV["NATION"]
 API_KEY = ENV["API_KEY"]
 FILE = ENV["FILE"] ? ENV["FILE"] : 'cache/' + NATION + '.json'
 TO = ENV["TO"]
-FROM = ENV["FROM"]
+FROM = ENV["FROM"] ? ENV["FROM"] : ENV["TO"]
 
 def get_old_tags(file)
   Dir.mkdir('cache') unless File.exists?('cache')
