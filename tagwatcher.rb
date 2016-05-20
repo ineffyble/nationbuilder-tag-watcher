@@ -3,7 +3,6 @@
 require 'mail'
 require 'json'
 require 'nationbuilder'
-require 'active_support/all'
 require 'fileutils'
 
 NATION = ENV["NATION"]
