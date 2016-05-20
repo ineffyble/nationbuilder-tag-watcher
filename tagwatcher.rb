@@ -3,7 +3,6 @@
 require 'mail'
 require 'json'
 require 'nationbuilder'
-require 'fileutils'
 
 NATION = ENV["NATION"]
 API_KEY = ENV["API_KEY"]
@@ -12,7 +11,7 @@ TO = ENV["TO"]
 FROM = ENV["FROM"]
 
 def get_old_tags(file)
-  FileUtils.mkdir_p 'cache'
+  Dir.mkdir('cache') unless File.exists?('cache')
   if File.exist?(file)
     return JSON.parse(File.open(file, 'r').read)
   else 
