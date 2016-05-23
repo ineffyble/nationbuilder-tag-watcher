@@ -4,12 +4,6 @@ require 'mail'
 require 'json'
 require 'nationbuilder'
 
-NATION = ENV["NATION"]
-API_KEY = ENV["API_KEY"]
-FILE = ENV["FILE"] ? ENV["FILE"] : 'cache/' + NATION + '.json'
-TO = ENV["TO"]
-FROM = ENV["FROM"]
-
 def get_old_tags(file)
   Dir.mkdir('cache') unless File.exists?('cache')
   if File.exist?(file)
@@ -82,10 +76,17 @@ end
 
 if __FILE__ == $0
 
+  NATION = ENV["NATION"]
+  API_KEY = ENV["API_KEY"]
+  TO = ENV["TO"]
+
   if NATION.nil? || API_KEY.nil? || TO.nil?
     p "Usage: NATION=nation_slug API_KEY=api_key TO=to_email_address FROM=from_email_address"
     exit 1
   end
+
+  FROM = ENV["FROM"] ? ENV["FROM"] : ENV["TO"]
+  FILE = ENV["FILE"] ? ENV["FILE"] : 'cache/' + NATION + '.json'
 
   p "Generating report of new tags on the " + NATION + " nation."
 
