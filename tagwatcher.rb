@@ -126,10 +126,9 @@ def send_tag_alert(nation, api_key, new_tags, webhook_url, channel, username)
       ]
     })
 
-    notifier.post text: "New tag(s)", attachments: tags
   end
 
-
+  notifier.post text: "New tag(s)", attachments: tags
   p "Tag alert sent."
 
 end
