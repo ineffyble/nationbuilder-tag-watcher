@@ -10,7 +10,7 @@ GEM
     mime-types-data (3.2016.0521)
     nationbuilder-rb (1.6.2)
       httpclient (~> 2.7)
-    slack-notifier (2.3.1)
+    slack-notifier (2.3.2)
 
 PLATFORMS
   ruby
